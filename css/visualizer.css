@@ -1,16 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
-* {
+:root {
+    --color-background: #FFFFFF;
+    --color-border: #E3E3E3;
+    --color-header: #000000;
+    --color-text: #525252;
+    --color-link: #3E3E3E;
+    --color-link-hover: #3333FF;
+
+    --size-primary: 16px;
+}
+
+*, ::after, ::before {
     margin: 0;
     padding: 0;
+    border: 0;
     box-sizing: border-box;
+}
+
+html {
     font-family: 'Roboto', sans-serif;
-    font-size: 2.5vh;
+    direction: ltr;
+    font-size: var(--size-primary);
+    line-height: 1.382em;
 }
 
 body {
-    height: 100vh;
-    background: linear-gradient(135deg, #82e6e6 0%, #617fa7 100%);
+    min-height: 100vh;
+    background: var(--color-background);
+}
+
+button, select {
+    font-size: var(--size-primary);
+    line-height: 1.382em;
 }
 
 .smv-container {
@@ -40,6 +62,9 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #333E4A;
+}
+
+.chunk > span {
     color: #EBDFDF;
 }
 
@@ -52,5 +77,5 @@ body {
 }
 
 .disabled {
-    background-color: #22282f;
+    background-color: #22282F;
 }
