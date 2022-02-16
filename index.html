@@ -61,46 +61,59 @@
     <!-- /Yandex.Metrika counter -->
 </head>
 <body>
-    <header class="tips">
-        <div class="container">
-            <nav class="grid-container">
-                <ul class="flex-row">
-                    <li><a href="https://eugene-serb.github.io/" target="_self">Home</a></li>
-                    <li><a href="https://eugene-serb.github.io/#services" target="_self">Services</a></li>
-                    <li><a href="https://eugene-serb.github.io/#skills" target="_self">Skills</a></li>
-                    <li><a href="https://eugene-serb.github.io/#repositories" target="_self">Repositories</a></li>
+    <header class="header">
+        <div class="header-wrapper container">
+
+            <div class="logo-wrapper">
+                <span class="logo-wrapper__logo">Eugene Serb.</span>
+            </div>
+
+            <nav class="menu-wrapper">
+                <ul class="navigation">
+                    <li class="navigation__item">
+                        <a href="https://eugene-serb.github.io/" target="_self" class="navigation__link">Home</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="https://eugene-serb.github.io/#projects" target="_self" class="navigation__link">Projects</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="https://eugene-serb.github.io/#services" target="_self" class="navigation__link">Services</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="https://eugene-serb.github.io/#skills" target="_self" class="navigation__link">Skills</a>
+                    </li>
                 </ul>
             </nav>
+
         </div>
     </header>
 
-    <section class="hide">
-        <h1>Eugene Serb — SM-Visualizer</h1>
-    </section>
+    <main class="page container">
 
-    <section class="container smv-container">
-        <section>
-            <form class="buttons">
-                <select id="methods">
-                    <option value="Bubble-1" selected="selected">Bubble classic</option>
-                    <option value="Bubble-2">Bubble flag</option>
-                    <option value="Shaker">Shaker</option>
-                    <option value="Gnome">Gnome</option>
-                </select>
-                <button type="button" onclick="sort();">Sort</button>
-                <button type="button" onclick="cleanField();">Clean</button>
-                <button type="button" onclick="getChunk();">Generate</button>
-            </form>
+        <section class="visually-hidden">
+            <h1>Eugene Serb — SM-Visualizer</h1>
         </section>
-        <section id="field" class="field"></section>
-    </section>
 
-    <footer class="tips border-top">
-        <div class="container">
-            <span>© 2021 Eugene Serb. Content licensed under </span><a href="https://eugene-serb.github.io/LICENSE.md" target="_blank">GNU General Public License v3.0</a><br />
-            <span>This site is open source. </span><a href="https://github.com/eugene-serb/eugene-serb.github.io/" target="_blank">Improve this page.</a>
-        </div>
-    </footer>
+        <section class="smv-container">
+            <section>
+                <form class="buttons">
+                    <select id="methods">
+                        <option value="Bubble-1" selected="selected">Bubble classic</option>
+                        <option value="Bubble-2">Bubble flag</option>
+                        <option value="Shaker">Shaker</option>
+                        <option value="Gnome">Gnome</option>
+                    </select>
+                    <button type="button" onclick="sort();">Sort</button>
+                    <button type="button" onclick="cleanField();">Clean</button>
+                    <button type="button" onclick="getChunk();">Generate</button>
+                </form>
+            </section>
+            <section id="field" class="field"></section>
+        </section>
+
+        <br />
+
+    </main>
 
     <script src="js/interface.js"></script>
     <script src="https://eugene-serb.github.io/js/scripts.js"></script>
