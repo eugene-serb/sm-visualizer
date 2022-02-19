@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
-:root {
-    --color-background: #FFFFFF;
-    --color-border: #E3E3E3;
-    --color-header: #000000;
-    --color-text: #525252;
-    --color-link: #3E3E3E;
-    --color-link-hover: #3333FF;
-
-    --size-primary: 16px;
-}
+:root {}
 
 *, ::after, ::before {
     margin: 0;
@@ -21,7 +12,7 @@
 html {
     font-family: 'Roboto', sans-serif;
     direction: ltr;
-    font-size: var(--size-primary);
+    font-size: 16px;
     line-height: 1.382em;
 }
 
@@ -31,7 +22,7 @@ body {
 }
 
 button, select {
-    font-size: var(--size-primary);
+    font-size: 16px;
     line-height: 1.382em;
 }
 
@@ -45,7 +36,7 @@ button, select {
 .buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2px;
+    gap: 2px;
     padding: 2px;
 }
 
@@ -53,7 +44,7 @@ button, select {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-gap: 2px;
+    gap: 2px;
     padding: 2px;
 }
 
