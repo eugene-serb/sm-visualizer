@@ -11,3 +11,5 @@ List of what this has and can visual:
 
 Later may be i'll add other methods.
 
+If you are interested in this or my other projects, or would like to suggest and share ideas with me, or just talk to me, contact me: *[@eugene_serb](https://twitter.com/eugene_serb)*
+
