@@ -18,7 +18,7 @@ function getRandomArbitrary() {
 };
 
 async function getChunk() {
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 8; i++) {
         let chunk = document.createElement('div');
         chunk.className = 'chunk';
         chunk.id = 'chunk-' + i;

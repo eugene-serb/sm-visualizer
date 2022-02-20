@@ -1,81 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+/* ------- */
+/* SMV APP */
+/* ------- */
 
-:root {
-    --color-background: #FFFFFF;
-    --color-border: #E3E3E3;
-    --color-header: #000000;
-    --color-text: #525252;
-    --color-link: #3E3E3E;
-    --color-link-hover: #3333FF;
-
-    --size-primary: 16px;
-}
-
-*, ::after, ::before {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-family: 'Roboto', sans-serif;
-    direction: ltr;
-    font-size: var(--size-primary);
-    line-height: 1.382em;
-}
-
-body {
-    min-height: 100vh;
-    background: var(--color-background);
-}
-
-button, select {
-    font-size: var(--size-primary);
-    line-height: 1.382em;
-}
-
-.smv-container {
-    height: 100vh;
-    margin: 0 auto;
-    display: grid;
-    grid-template-rows: 1fr 4fr;
-}
-
-.buttons {
+.smv-form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2px;
-    padding: 2px;
+    gap: 4px;
 }
 
-.field {
+.smv-field {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-gap: 2px;
-    padding: 2px;
+    gap: 4px;
 }
 
-.chunk {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #333E4A;
-}
+    .chunk {
+        margin: 0;
+        padding: 16px;
+        border: 2px dashed var(--color-border);
+        border-radius: 4px;
+        background-color: var(--color-background);
+        display: flex;
+        justify-content: center;
+    }
 
-.chunk > span {
-    color: #EBDFDF;
-}
+    .focus {
+        outline: 2px solid green;
+    }
 
-.focus {
-    border: 2px solid white;
-}
+    .focusSwap {
+        outline: 2px solid yellow;
+    }
 
-.focusSwap {
-    border: 2px solid yellow;
-}
+    .disabled {
+        opacity: 0.5;
+    }
 
-.disabled {
-    background-color: #22282F;
-}
