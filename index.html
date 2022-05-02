@@ -95,24 +95,22 @@
 
     <main class="page container">
         <h1 class="visually-hidden">Eugene Serb — SM-Visualizer</h1>
-
-        <section class="post smv-app">
+        <section class="post">
             <h2 class="post__header">Sort Methods Visualizer</h2>
-
-            <fieldset class="smv-form">
-                <select id="methods">
-                    <option value="Bubble-1" selected="selected">Bubble classic</option>
-                    <option value="Bubble-2">Bubble flag</option>
-                    <option value="Shaker">Shaker</option>
-                    <option value="Gnome">Gnome</option>
-                </select>
-                <button type="button" onclick="sort();">Sort</button>
-                <button type="button" onclick="cleanField();">Clean</button>
-                <button type="button" onclick="getChunk();">Generate</button>
-            </fieldset>
-
-            <br />
-            <div id="field" class="smv-field"></div>
+            <div class="sm-visualizer">
+                <fieldset class="controls">
+                    <select id="methods">
+                        <option value="0" selected="selected">Bubble Classic</option>
+                        <option value="1">Bubble with a flag</option>
+                        <option value="2">Shaker</option>
+                        <option value="3">Gnome</option>
+                    </select>
+                    <button id="sort" type="button">Sort</button>
+                    <button id="clean" type="button">Clean</button>
+                    <button id="generate" type="button">Generate</button>
+                </fieldset>
+                <div class="map"></div>
+            </div>
         </section>
     </main>
 
@@ -125,7 +123,7 @@
         </div>
     </footer>
 
-    <script src="js/interface.js"></script>
+    <script src="js/visualizer.js"></script>
     <script src="https://eugene-serb.github.io/js/scripts.js"></script>
     <noscript><div><img src="https://mc.yandex.ru/watch/76610724" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </body>
