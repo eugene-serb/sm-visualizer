@@ -66,6 +66,9 @@ class Visualizer {
         this.#eventListeners();
 
         this.map = new Map(this.$MAP, this.MATRIX_WIDTH);
+
+        this.inWork = false;
+        this.isSorted = false;
     };
 
     start = () => {
@@ -88,40 +91,44 @@ class Visualizer {
     };
     async sortBubble(){
         let arr = this.map.copyMatrix(this.map.matrix);
+
         for (let j = arr.length - 1; j >= 0; j--) {
             for (let i = 0; i < j; i++) {
                 await this.setState(arr, 'focus', i);
                 if (arr[i].cost > arr[i + 1].cost) {
                     await this.setState(arr, 'swap', i + 1);
-                    let temp = arr[i].cost;
-                    arr[i].cost = arr[i + 1].cost;
-                    arr[i + 1].cost = temp;
+                    [arr[i].cost, arr[i + 1].cost] = [arr[i + 1].cost, arr[i].cost];
                     await this.setState(arr, '', i + 1);
                 };
                 await this.setState(arr, '', i);
             };
             await this.setState(arr, 'disabled', j);
         };
+
+        this.inWork = false;
+        this.isSorted = true;
         return arr;
     };
     async sortBubbleFlag() {
         let arr = this.map.copyMatrix(this.map.matrix);
         let swapped;
+
         do {
             swapped = false;
             for (let i = 0; i < arr.length - 1; i++) {
                 await this.setState(arr, 'focus', i);
                 if (arr[i].cost > arr[i + 1].cost) {
                     await this.setState(arr, 'swap', i + 1);
-                    let temp = arr[i].cost;
-                    arr[i].cost = arr[i + 1].cost;
-                    arr[i + 1].cost = temp;
+                    [arr[i].cost, arr[i + 1].cost] = [arr[i + 1].cost, arr[i].cost];
                     swapped = true;
                     await this.setState(arr, '', i + 1);
                 };
                 await this.setState(arr, '', i);
             };
         } while (swapped);
+
+        this.inWork = false;
+        this.isSorted = true;
         return arr;
     };
     async sortShaker() {
@@ -153,11 +160,15 @@ class Visualizer {
             await this.setState(arr, 'disabled', left);
             left++;
         } while (left < right);
+
+        this.inWork = false;
+        this.isSorted = true;
         return arr;
     };
     async sortGnome() {
         let arr = this.map.copyMatrix(this.map.matrix);
         let i = 1;
+
         while (i < arr.length) {
             await this.setState(arr, 'focus', i);
             await this.setState(arr, '', i);
@@ -172,6 +183,9 @@ class Visualizer {
                 i++;
             };
         };
+
+        this.inWork = false;
+        this.isSorted = true;
         return arr;
     };
 
@@ -193,16 +207,20 @@ class Visualizer {
     #DOMs = () => {
         this.$SELECTOR_METHOD = document.getElementById('methods');
         this.$BUTTON_SORT = document.getElementById('sort');
-        this.$BUTTON_CLEAN = document.getElementById('clean');
-        this.$BUTTON_GENERATE = document.getElementById('generate');
         this.$MAP = document.querySelector('.map');
     };
     #eventListeners = () => {
-        this.$BUTTON_SORT.addEventListener('click', () => this.start());
-        this.$BUTTON_CLEAN.addEventListener('click', () => this.$MAP.innerHTML = '');
-        this.$BUTTON_GENERATE.addEventListener('click', () => {
-            this.map.matrix = this.map.generateMatrix(this.map.matrix_width)
-            this.map.draw();
+        this.$BUTTON_SORT.addEventListener('click', () => {
+            if (this.isSorted === true) {
+                this.map.matrix = this.map.generateMatrix(this.map.matrix_width);
+                this.map.draw();
+                this.isSorted = false;
+                this.inWork = false;
+            };
+            if (this.inWork === false) {
+                this.inWork = true;
+                this.start();
+            };
         });
     };
 };
