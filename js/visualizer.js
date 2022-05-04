@@ -94,15 +94,15 @@ class Visualizer {
 
         for (let j = arr.length - 1; j >= 0; j--) {
             for (let i = 0; i < j; i++) {
-                await this.setState(arr, 'focus', i);
+                await this.setState(arr, 'item_focus', i);
                 if (arr[i].cost > arr[i + 1].cost) {
-                    await this.setState(arr, 'swap', i + 1);
+                    await this.setState(arr, 'item_swap', i + 1);
                     [arr[i].cost, arr[i + 1].cost] = [arr[i + 1].cost, arr[i].cost];
                     await this.setState(arr, '', i + 1);
                 };
                 await this.setState(arr, '', i);
             };
-            await this.setState(arr, 'disabled', j);
+            await this.setState(arr, 'item_disabled', j);
         };
 
         this.inWork = false;
@@ -116,9 +116,9 @@ class Visualizer {
         do {
             swapped = false;
             for (let i = 0; i < arr.length - 1; i++) {
-                await this.setState(arr, 'focus', i);
+                await this.setState(arr, 'item_focus', i);
                 if (arr[i].cost > arr[i + 1].cost) {
-                    await this.setState(arr, 'swap', i + 1);
+                    await this.setState(arr, 'item_swap', i + 1);
                     [arr[i].cost, arr[i + 1].cost] = [arr[i + 1].cost, arr[i].cost];
                     swapped = true;
                     await this.setState(arr, '', i + 1);
@@ -138,26 +138,26 @@ class Visualizer {
 
         do {
             for (let i = left; i < right; i++) {
-                await this.setState(arr, 'focus', i);
+                await this.setState(arr, 'item_ocus', i);
                 if (arr[i].cost > arr[i + 1].cost) {
-                    await this.setState(arr, 'swap', i + 1);
+                    await this.setState(arr, 'item_swap', i + 1);
                     [arr[i].cost, arr[i + 1].cost] = [arr[i + 1].cost, arr[i].cost]
                     await this.setState(arr, '', i + 1);
                 };
                 await this.setState(arr, '', i);
             };
-            await this.setState(arr, 'disabled', right);
+            await this.setState(arr, 'item_disabled', right);
             right--;
             for (let i = right; left < i; i--) {
-                await this.setState(arr, 'focus', i);
+                await this.setState(arr, 'item_focus', i);
                 if (arr[i].cost < arr[i - 1].cost) {
-                    await this.setState(arr, 'swap', i);
+                    await this.setState(arr, 'item_swap', i);
                     [arr[i].cost, arr[i - 1].cost] = [arr[i - 1].cost, arr[i].cost]
                     await this.setState(arr, '', i);
                 };
                 await this.setState(arr, '', i);
             };
-            await this.setState(arr, 'disabled', left);
+            await this.setState(arr, 'item_disabled', left);
             left++;
         } while (left < right);
 
@@ -170,11 +170,11 @@ class Visualizer {
         let i = 1;
 
         while (i < arr.length) {
-            await this.setState(arr, 'focus', i);
+            await this.setState(arr, 'item_focus', i);
             await this.setState(arr, '', i);
             if (i > 0 && arr[i - 1].cost > arr[i].cost) {
-                await this.setState(arr, 'focus', i);
-                await this.setState(arr, 'swap', i - 1);
+                await this.setState(arr, 'item_focus', i);
+                await this.setState(arr, 'item_swap', i - 1);
                 [arr[i].cost, arr[i - 1].cost] = [arr[i - 1].cost, arr[i].cost];
                 await this.setState(arr, '', i);
                 await this.setState(arr, '', i - 1);

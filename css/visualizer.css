@@ -2,6 +2,8 @@
 /* SM VISUALIZER */
 /* ------------- */
 
+@charset 'UTF-8';
+
 .sm-visualizer {
     display: flex;
     flex-direction: column;
@@ -31,15 +33,15 @@
     font-size: 24px;
 }
 
-.focus {
+.item_focus {
     outline: 2px solid var(--color-link-hover);
 }
 
-.swap {
+.item_swap {
     outline: 2px solid var(--color-d-monocromatic-b);
 }
 
-.disabled {
+.item_disabled {
     opacity: 0.3;
 }
 
