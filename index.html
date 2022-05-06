@@ -71,18 +71,13 @@
 <body>
     <header class="header">
         <div class="header-wrapper container">
-
             <div class="logo-wrapper">
                 <span class="logo-wrapper__logo">Eugene Serb.</span>
             </div>
-
             <nav class="menu-wrapper">
                 <ul class="navigation">
                     <li class="navigation__item">
                         <a href="https://eugene-serb.github.io/" target="_self" class="navigation__link">Home</a>
-                    </li>
-                    <li class="navigation__item">
-                        <a href="https://eugene-serb.github.io/#projects" target="_self" class="navigation__link">Projects</a>
                     </li>
                     <li class="navigation__item">
                         <a href="https://eugene-serb.github.io/#skills" target="_self" class="navigation__link">Skills</a>
@@ -90,36 +85,43 @@
                     <li class="navigation__item">
                         <a href="https://eugene-serb.github.io/#services" target="_self" class="navigation__link">Services</a>
                     </li>
+                    <li class="navigation__item">
+                        <a href="https://eugene-serb.github.io/#projects" target="_self" class="navigation__link">Projects</a>
+                    </li>
                 </ul>
             </nav>
-
         </div>
     </header>
 
     <main class="page container">
         <h1 class="visually-hidden">Eugene Serb — SM-Visualizer</h1>
-
-        <section class="smv-app">
-            <h2>Sort Methods Visualizer</h2>
-
-            <fieldset class="smv-form">
-                <select id="methods">
-                    <option value="Bubble-1" selected="selected">Bubble classic</option>
-                    <option value="Bubble-2">Bubble flag</option>
-                    <option value="Shaker">Shaker</option>
-                    <option value="Gnome">Gnome</option>
-                </select>
-                <button type="button" onclick="sort();">Sort</button>
-                <button type="button" onclick="cleanField();">Clean</button>
-                <button type="button" onclick="getChunk();">Generate</button>
-            </fieldset>
-
-            <br />
-            <div id="field" class="smv-field"></div>
+        <section class="post">
+            <h2 class="post__header">Sort Methods Visualizer</h2>
+            <div class="sm-visualizer">
+                <fieldset class="controls">
+                    <select id="methods">
+                        <option value="0" selected="selected">Bubble Classic</option>
+                        <option value="1">Bubble with a flag</option>
+                        <option value="2">Shaker</option>
+                        <option value="3">Gnome</option>
+                    </select>
+                    <button id="sort" type="button">Sort</button>
+                </fieldset>
+                <div class="map"></div>
+            </div>
         </section>
     </main>
 
-    <script src="js/interface.js"></script>
+    <footer class="footer">
+        <div class="footer-wrapper container">
+            <div class="annotation">
+                <span class="annotation__text">© 2021 – 2022 Eugene Serb. Content licensed under </span><a href="https://eugene-serb.github.io/sm-visualizer/LICENSE.md" target="_blank">GNU General Public License v3.0</a><br />
+                <span class="annotation__text">This site is open source. </span><a href="https://github.com/eugene-serb/sm-visualizer/" target="_blank">Improve this page.</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/visualizer.js"></script>
     <script src="https://eugene-serb.github.io/js/scripts.js"></script>
     <noscript><div><img src="https://mc.yandex.ru/watch/76610724" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </body>

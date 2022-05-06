@@ -1,39 +1,47 @@
-/* ------- */
-/* SMV APP */
-/* ------- */
+/* ------------- */
+/* SM VISUALIZER */
+/* ------------- */
 
-.smv-form {
+@charset 'UTF-8';
+
+.sm-visualizer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.controls {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
+    gap: 8px;
 }
 
-.smv-field {
+.map {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 4px;
+    gap: 8px;
 }
 
-    .chunk {
-        margin: 0;
-        padding: 16px;
-        border: 2px dashed var(--color-border);
-        border-radius: 4px;
-        background-color: var(--color-background);
-        display: flex;
-        justify-content: center;
-    }
+.item {
+    margin: 0;
+    padding: 16px;
+    border: 2px dashed var(--color-border);
+    border-radius: 4px;
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+}
 
-    .focus {
-        outline: 2px solid green;
-    }
+.item_focus {
+    outline: 2px solid var(--color-link-hover);
+}
 
-    .focusSwap {
-        outline: 2px solid yellow;
-    }
+.item_swap {
+    outline: 2px solid var(--color-d-monocromatic-b);
+}
 
-    .disabled {
-        opacity: 0.5;
-    }
+.item_disabled {
+    opacity: 0.3;
+}
 
