@@ -2,7 +2,7 @@
 /* SM VISUALIZER */
 /* ------------- */
 
-'use strict'
+'use strict';
 
 class Support {
     constructor() {
@@ -89,7 +89,7 @@ class Visualizer {
                 break;
         };
     };
-    async sortBubble(){
+    sortBubble = async () => {
         let arr = this.map.copyMatrix(this.map.matrix);
 
         for (let j = arr.length - 1; j >= 0; j--) {
@@ -109,7 +109,7 @@ class Visualizer {
         this.isSorted = true;
         return arr;
     };
-    async sortBubbleFlag() {
+    sortBubbleFlag = async () => {
         let arr = this.map.copyMatrix(this.map.matrix);
         let swapped;
 
@@ -131,7 +131,7 @@ class Visualizer {
         this.isSorted = true;
         return arr;
     };
-    async sortShaker() {
+    sortShaker = async () => {
         let arr = this.map.copyMatrix(this.map.matrix);
         let left = 0;
         let right = arr.length - 1;
@@ -141,7 +141,7 @@ class Visualizer {
                 await this.setState(arr, 'item_ocus', i);
                 if (arr[i].cost > arr[i + 1].cost) {
                     await this.setState(arr, 'item_swap', i + 1);
-                    [arr[i].cost, arr[i + 1].cost] = [arr[i + 1].cost, arr[i].cost]
+                    [arr[i].cost, arr[i + 1].cost] = [arr[i + 1].cost, arr[i].cost];
                     await this.setState(arr, '', i + 1);
                 };
                 await this.setState(arr, '', i);
@@ -152,7 +152,7 @@ class Visualizer {
                 await this.setState(arr, 'item_focus', i);
                 if (arr[i].cost < arr[i - 1].cost) {
                     await this.setState(arr, 'item_swap', i);
-                    [arr[i].cost, arr[i - 1].cost] = [arr[i - 1].cost, arr[i].cost]
+                    [arr[i].cost, arr[i - 1].cost] = [arr[i - 1].cost, arr[i].cost];
                     await this.setState(arr, '', i);
                 };
                 await this.setState(arr, '', i);
@@ -165,7 +165,7 @@ class Visualizer {
         this.isSorted = true;
         return arr;
     };
-    async sortGnome() {
+    sortGnome = async () => {
         let arr = this.map.copyMatrix(this.map.matrix);
         let i = 1;
 
@@ -189,7 +189,7 @@ class Visualizer {
         return arr;
     };
 
-    async setState(arr, state, index) {
+    setState = async (arr, state, index) => {
         await this.sleep(this.SPEED_RATE);
         arr[index].state = state;
         this.map.matrix = this.map.copyMatrix(arr);
