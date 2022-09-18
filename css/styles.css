@@ -1,6 +1,6 @@
 /* ------------------------------ */
 /* eugene-serb.github.io styles   */
-/* version:     dated 2022.08.27  */
+/* version:     2022.09.18        */
 /* author:      Eugene Serb       */
 /* ------------------------------ */
 
@@ -46,12 +46,6 @@
   --color-e-monocromatic-b: #CC4E86;
   --color-e-monocromatic-c: #42192C;
   --color-e-monocromatic-d: #8F6176;
-}
-
-:root {
-  /* Base numbers */
-  --number-border-radius: 8px;
-  --number-border-size: 2px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -116,6 +110,18 @@
   }
 }
 
+:root {
+  /* Base numbers */
+  --number-border-radius: 8px;
+  --number-border-size: 2px;
+  /* Components sizes */
+  --number-form-border-size: var(--number-border-size);
+  --number-form-border-radius: var(--number-border-radius);
+  --number-header-focus-border-size: var(--number-border-size);
+  --number-content-border-size: var(--number-border-size);
+  --number-content-border-radius: var(--number-border-radius);
+}
+
 *, ::after, ::before {
   margin: 0;
   padding: 0;
@@ -142,11 +148,11 @@ body {
 }
 
 :focus {
-  border-bottom: 2px solid var(--color-selection);
+  border-bottom: var(--number-border-size) solid var(--color-selection);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-selection);
+  outline: var(--number-border-size) solid var(--color-selection);
   border-color: transparent;
 }
 
@@ -172,21 +178,24 @@ span, p, article, blockquote {
   font-weight: 300;
 }
 
-ul {
+ol, ul {
   padding: 16px;
+}
+
+ul {
   list-style-type: circle;
 }
 
 a {
   background-color: transparent;
-  border-bottom: 2px solid transparent;
+  border-bottom: var(--number-border-size) solid transparent;
   font-weight: 500;
   color: var(--color-link);
   text-decoration: none;
 }
 
   a:hover {
-    border-bottom: 2px solid var(--color-link-hover);
+    border-bottom: var(--number-border-size) solid var(--color-link-hover);
     color: var(--color-link-hover);
     transition: all 0.5s ease;
     text-decoration: none;
@@ -226,15 +235,15 @@ legend {
 }
 
 fieldset {
-  border: 2px solid var(--color-fieldset-border);
-  border-radius: var(--number-border-radius);
+  border: var(--number-form-border-size) solid var(--color-fieldset-border);
+  border-radius: var(--number-form-border-radius);
   padding: 8px;
 }
 
 button, textarea, select, input {
   padding: 4px 8px;
-  border: 2px solid var(--color-link);
-  border-radius: var(--number-border-radius);
+  border: var(--number-form-border-size) solid var(--color-link);
+  border-radius: var(--number-form-border-radius);
   background: var(--color-background);
   color: var(--color-text);
   font-size: 16px;
@@ -244,7 +253,7 @@ button, textarea, select, input {
 
   button:hover, input:hover,
   textarea:hover, select:hover {
-    border: 2px solid var(--color-link-hover);
+    border: var(--number-form-border-size) solid var(--color-link-hover);
     transition: all 0.5s ease;
   }
 
@@ -284,8 +293,8 @@ input[type=range] {
     cursor: pointer;
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     background: var(--color-a-monocromatic-a);
-    border-radius: 8px;
     border: 0px solid #000101;
+    border-radius: var(--number-form-border-radius);
   }
 
   input[type=range]::-webkit-slider-thumb {
@@ -294,7 +303,7 @@ input[type=range] {
     height: 16px;
     margin-top: -4px;
     border: 0px solid #000000;
-    border-radius: 8px;
+    border-radius: var(--number-form-border-radius);
     background: var(--color-a);
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     cursor: pointer;
@@ -308,7 +317,7 @@ input[type=range] {
     width: 100%;
     height: 8px;
     border: 0px solid #000101;
-    border-radius: 8px;
+    border-radius: var(--number-form-border-radius);
     background: var(--color-a-monocromatic-a);
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     cursor: pointer;
@@ -319,7 +328,7 @@ input[type=range] {
     width: 16px;
     height: 16px;
     border: 0px solid #000000;
-    border-radius: 8px;
+    border-radius: var(--number-form-border-radius);
     background: var(--color-a);
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     cursor: pointer;
@@ -338,14 +347,14 @@ input[type=range] {
 
   input[type=range]::-ms-fill-lower {
     border: 0px solid #000101;
-    border-radius: 8px;
+    border-radius: var(--number-form-border-radius);
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     background: var(--color-a-monocromatic-a);
   }
 
   input[type=range]::-ms-fill-upper {
     border: 0px solid #000101;
-    border-radius: 8px;
+    border-radius: var(--number-form-border-radius);
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     background: var(--color-a-monocromatic-a);
   }
@@ -354,7 +363,7 @@ input[type=range] {
     width: 16px;
     height: 16px;
     border: 0px solid #000000;
-    border-radius: 8px;
+    border-radius: var(--number-form-border-radius);
     background: var(--color-a);
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     cursor: pointer;
@@ -449,11 +458,11 @@ table, th, td {
   }
 
   .header :focus {
-    border-bottom: 2px solid var(--color-header-navigation-link-hover);
+    border-bottom: var(--number-header-focus-border-size) solid var(--color-header-navigation-link-hover);
   }
 
   .header :focus-visible {
-    outline: 2px solid var(--color-header-navigation-link-hover);
+    outline: var(--number-header-focus-border-size) solid var(--color-header-navigation-link-hover);
     border-color: transparent;
   }
 
@@ -623,15 +632,15 @@ table, th, td {
   margin-top: 0;
   margin-bottom: 16px;
   padding-left: 16px;
-  border: 2px solid var(--color-content-borderline);
-  border-radius: var(--number-border-radius);
+  border: var(--number-content-border-size) solid var(--color-content-borderline);
+  border-radius: var(--number-content-border-radius);
   color: var(--color-text-header);
   font-size: 1.8em;
 }
 
 .content__header_emerald {
   padding: 8px 16px;
-  border: 2px solid var(--color-content-header-colored-borderline);
+  border: var(--number-content-border-size) solid var(--color-content-header-colored-borderline);
   background-color: var(--color-content-header-colored);
   color: var(--color-white);
   font-size: 2.2em;
@@ -643,8 +652,8 @@ table, th, td {
 
 .content__image {
   width: 100%;
-  border: 2px solid var(--color-content-borderline);
-  border-radius: var(--number-border-radius);
+  border: var(--number-content-border-size) solid var(--color-content-borderline);
+  border-radius: var(--number-content-border-radius);
 }
 
 .content-item {
@@ -653,8 +662,8 @@ table, th, td {
 
 .content-item_bordered {
   padding: 16px;
-  border: 2px solid var(--color-content-item-borderline);
-  border-radius: var(--number-border-radius);
+  border: var(--number-content-border-size) solid var(--color-content-item-borderline);
+  border-radius: var(--number-content-border-radius);
 }
 
 .content-item__header {
@@ -714,23 +723,6 @@ table, th, td {
   }
 
 /* ---- */
-/* GITS */
-/* ---- */
-
-.git-link {
-  margin-left: 4px;
-  font-size: 12px;
-}
-
-  .git-link a {
-    border-bottom: 1px solid transparent;
-  }
-
-    .git-link a:hover {
-      border-bottom: 1px solid var(--color-link-hover);
-    }
-
-/* ---- */
 /* TAGS */
 /* ---- */
 
@@ -746,7 +738,7 @@ table, th, td {
 .tag-item {
   padding: 2px 8px;
   border: 1px solid var(--color-c);
-  border-radius: var(--number-border-radius);
+  border-radius: var(--number-content-border-radius);
   background-color: var(--color-a-monocromatic-c);
   color: var(--color-white);
   font-weight: 500;
@@ -808,3 +800,19 @@ table, th, td {
   background-color: #8181f2;
 }
 
+/* --------- */
+/* SIGN LINK */
+/* --------- */
+
+.sign-link {
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+  .sign-link a {
+    border-bottom: 1px solid transparent;
+  }
+
+    .sign-link a:hover {
+      border-bottom: 1px solid var(--color-link-hover);
+    }
