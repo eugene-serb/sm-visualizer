@@ -11,4 +11,4 @@
 @import url('/css/footer.css');
 @import url('/css/content.css');
 
-@import url('/css/visualizer.css');
+@import url('./visualizer.css');
