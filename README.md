@@ -1,6 +1,6 @@
 # Sort Methods Visualizer
 
-Sort Methods Visualizer[[rep](https://github.com/eugene-serb/sm-visualizer)]**.
+Sort Methods Visualizer **[[rep](https://github.com/eugene-serb/sm-visualizer)]**.
 
 This program needed to visualize array sorting algorithms. Written just for learning. Yes, it's so primitive. Yes, YouTube and many of books for learning about coding and algorithms exist.
 
