@@ -1,7 +1,3 @@
-/* ------------- */
-/* SM VISUALIZER */
-/* ------------- */
-
 'use strict';
 
 class Support {
@@ -37,6 +33,7 @@ class Map {
     };
     return result;
   };
+  
   generateMatrix = (matrix_width) => {
     let matrix = new Array();
     for (let x = 0; x < matrix_width; x++) {
@@ -44,9 +41,11 @@ class Map {
     };
     return matrix;
   };
+
   #generateItem = () => {
     return new Item(this.support.getRandomInteger(0, 1000));
   };
+
   draw = () => {
     this.container.innerHTML = '';
     for (let x = 0; x < this.matrix_width; x++) {
@@ -89,6 +88,7 @@ class Visualizer {
         break;
     };
   };
+
   sortBubble = async () => {
     let arr = this.map.copyMatrix(this.map.matrix);
 
@@ -109,6 +109,7 @@ class Visualizer {
     this.isSorted = true;
     return arr;
   };
+
   sortBubbleFlag = async () => {
     let arr = this.map.copyMatrix(this.map.matrix);
     let swapped;
@@ -131,6 +132,7 @@ class Visualizer {
     this.isSorted = true;
     return arr;
   };
+
   sortShaker = async () => {
     let arr = this.map.copyMatrix(this.map.matrix);
     let left = 0;
@@ -165,6 +167,7 @@ class Visualizer {
     this.isSorted = true;
     return arr;
   };
+
   sortGnome = async () => {
     let arr = this.map.copyMatrix(this.map.matrix);
     let i = 1;
@@ -196,6 +199,7 @@ class Visualizer {
     this.map.draw();
     await this.sleep(this.SPEED_RATE);
   };
+
   sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
   };
@@ -204,11 +208,13 @@ class Visualizer {
     this.MATRIX_WIDTH = 16;
     this.SPEED_RATE = 100;
   };
+
   #DOMs = () => {
     this.$SELECTOR_METHOD = document.getElementById('methods');
     this.$BUTTON_SORT = document.getElementById('sort');
     this.$MAP = document.querySelector('.map');
   };
+
   #eventListeners = () => {
     this.$BUTTON_SORT.addEventListener('click', () => {
       if (this.isSorted === true) {
@@ -224,10 +230,6 @@ class Visualizer {
     });
   };
 };
-
-/* -------------- */
-/* INITIALIZATION */
-/* -------------- */
 
 const VISUALIZER = new Visualizer();
 

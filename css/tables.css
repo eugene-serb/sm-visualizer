@@ -1,0 +1,33 @@
+@charset 'UTF-8';
+
+table,
+th,
+td {
+  width: 100%;
+  padding: 8px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-weight: 400;
+}
+
+.table_emerald thead {
+  border-bottom: 4px solid var(--color-table-item);
+}
+
+.table_emerald thead > tr {
+  background-color: var(--color-table-header-background);
+  color: var(--color-table-header-text);
+}
+
+.table_emerald thead > tr > th {
+  font-weight: 500;
+}
+
+.table_emerald tbody > tr:nth-child(even) {
+  background-color: var(--color-table-item);
+  color: var(--color-d);
+}
+
+.table_emerald tfoot {
+  border-top: 4px solid var(--color-table-header-background);
+}
